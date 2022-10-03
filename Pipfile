@@ -10,9 +10,13 @@ pydantic = "*"
 sqlalchemy = "*"
 sqlalchemy-utils = "*"
 alembic = "*"
-
+redis = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[packages.celery]
+extras = [ "redis",]

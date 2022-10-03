@@ -1,10 +1,12 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql+psycopg2://meshdb_user:Boqgg3dljhOPzTFDl4aA2W8aoxnXAGzw@dpg-ccrieq9a6gdl22bkim20-a.oregon-postgres.render.com/meshdb"
-ASYNC_SQLALCHEMY_DATABASE_URL = "postgresql+asyncpg://meshdb_user:Boqgg3dljhOPzTFDl4aA2W8aoxnXAGzw@dpg-ccrieq9a6gdl22bkim20-a.oregon-postgres.render.com/meshdb"
+SQLALCHEMY_DATABASE_URL = os.getenv("PG_URL_SYNC")
+ASYNC_SQLALCHEMY_DATABASE_URL = os.getenv("PG_URL_ASYNC")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={}, future=True)
 async_engine = create_async_engine(ASYNC_SQLALCHEMY_DATABASE_URL)

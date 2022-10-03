@@ -6,3 +6,4 @@ psycopg2-binary
 SQLAlchemy-Utils
 alembic
 asyncpg
+celery[redis]
