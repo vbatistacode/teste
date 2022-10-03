@@ -3,7 +3,7 @@ import os
 
 from celery import Celery
 
-app = Celery()
+app = Celery(__name__)
 app.conf.broker_url = os.getenv("CELERY_BROKER_URL")
 app.conf.result_backend = os.getenv("CELERY_RESULT_BACKEND")
 
